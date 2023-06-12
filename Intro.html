@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Second Page</title>
+    <link rel="stylesheet" href="Intro.css" />
+    <script src="Intro.js"></script>
+    <!-- <style>
+        body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+h2{
+    color: indigo;
+    letter-spacing: 4px;
+}
+span{
+    text-decoration: underline;
+}
+    </style> -->
+  </head>
+  <body>
+    <h2>Hello From SkillSoft</h2>
+    <p>Tell us about <span>your</span> course</p>
+<div>
+  <script>
+    for(x=0; x<coursesArray.length; x++){
+      document.write(coursesArray[x] + ', ');
+    }
+    document.write("<p></p>");
+
+    //  store the data in console 
+
+    document.getElementById("sendData").addEventListener('click', function(){
+       var data = console.log('Data is Saved');
+       localStorage.setItem('savedData', data);
+    });
+  </script>
+</div>
+    <div>
+      <form>
+        <div>
+          <label>Choose a Course:</label>
+        </div>
+        <div>
+          <select id="courses" multiple size="3">
+            <!-- ( multiple size="5" ) these are above in the select tag -->
+            <option value="" selected>--Choose--</option>
+            <option value="angular">Angular</option>
+            <option value="reactjs">React JS</option>
+            <option value="vue">Vue</option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+          </select>
+        </div>
+
+        <div id="favourites">
+          <div>
+            <label class="standoutLabel">Favourite Instructor:</label>
+            <input type="text" id="instructorName" />
+          </div>
+          <div>
+            <label class="standoutLabel">Favourite Course:</label>
+            <input type="text" id="courseName" />
+          </div>
+          <div>
+            <label>Did you like the course</label>
+          </div>
+          <div id="likes">
+            <input type="radio" name="like" />Yes
+            <input type="radio" name="like" />No
+          </div>
+        </div>
+        <div>
+          <button class="green-btn" id="sendData">Send</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

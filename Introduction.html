@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Page</title>
+    <style>
+      #courses{
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .standoutLabel{
+        background-color: beige;
+        display: inline-block;
+      }
+      input[type=text]{
+        margin-top: 10px;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li style="display: inline-block">
+          <a href="home.html">Home</a>
+        </li>
+        <li style="display: inline-block">
+          <a href="services.html">Services</a>
+        </li>
+        <li style="display: inline-block">
+          <a href="contactus.html">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <h3>Hello from SkillSoft</h3>
+    <p>I hope you people are learning well</p>
+    <h4>Tell us about your course</h4>
+
+    <form>
+      <div>
+        <select name="courses" id="courses">
+          <!-- ( multiple size="5" ) these are above in the select tag -->
+          <option value="" selected>--Choose--</option>
+          <option value="angular">Angular</option>
+          <option value="reactjs">React JS</option>
+          <option value="vue">Vue</option>
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+        </select>
+      </div>
+    </form>
+    <br />
+    <form>
+      <div>
+        <label class="standoutLabel">Enter your favourite Instructor:</label>
+      </div>
+      <div>
+        <input type="text" id="courseName" />
+      </div>
+      <p>Did you like the course</p>
+      <div>
+        <input type="radio" name="like" />Yes
+        <input type="radio" name="like" />No
+      </div>
+      <button>Send</button>
+    </form>
+    <h3>Table format in HTML</h3>
+    <table style="border: 1px solid red; border-radius: 10px">
+      <tr style="border: 1px solid red; border-radius: 10px">
+        <th
+          style="
+            border: 1px solid blue;
+            border-radius: 10px;
+            background-color: rgb(134, 216, 134);
+          "
+        >
+          Course Name
+        </th>
+        <th
+          style="
+            border: 1px solid blue;
+            border-radius: 10px;
+            background-color: rgb(134, 216, 134);
+          "
+        >
+          Instructor Name
+        </th>
+        <th
+          style="
+            border: 1px solid blue;
+            border-radius: 10px;
+            background-color: rgb(134, 216, 134);
+          "
+        >
+          Start Date
+        </th>
+      </tr>
+      <tr style="border: 1px solid red; border-radius: 10px">
+        <td style="border: 1px solid red; border-radius: 10px">JavaScript</td>
+        <td style="border: 1px solid red; border-radius: 10px">John</td>
+        <td style="border: 1px solid red; border-radius: 10px">
+          January 1, 2023
+        </td>
+      </tr>
+      <tr style="border: 1px solid red; border-radius: 10px">
+        <td style="border: 1px solid red; border-radius: 10px">Java</td>
+        <td style="border: 1px solid red; border-radius: 10px">Smith</td>
+        <td style="border: 1px solid red; border-radius: 10px">
+          January 5, 2023
+        </td>
+      </tr>
+      <tr style="border: 1px solid red; border-radius: 10px">
+        <td style="border: 1px solid red; border-radius: 10px">C#</td>
+        <td style="border: 1px solid red; border-radius: 10px">Mary</td>
+        <td style="border: 1px solid red; border-radius: 10px">
+          January 10, 2023
+        </td>
+      </tr>
+    </table>
+    <br />
+    <table style="border: 1px solid black; width: 100%">
+      <tr>
+        <th
+          style="
+            background-color: rgb(237, 21, 21);
+            color: white;
+            padding: 10px;
+          "
+        >
+          Column 1
+        </th>
+        <th
+          style="
+            background-color: rgb(237, 21, 21);
+            color: white;
+            padding: 10px;
+          "
+        >
+          Column 2
+        </th>
+        <th
+          style="
+            background-color: rgb(237, 21, 21);
+            color: white;
+            padding: 10px;
+          "
+        >
+          Column 3
+        </th>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 10px">Row 1, Column 1</td>
+        <td style="border: 1px solid black; padding: 10px">Row 1, Column 2</td>
+        <td style="border: 1px solid black; padding: 10px">Row 1, Column 3</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; padding: 10px">Row 2, Column 1</td>
+        <td style="border: 1px solid black; padding: 10px">Row 2, Column 2</td>
+        <td style="border: 1px solid black; padding: 10px">Row 2, Column 3</td>
+      </tr>
+    </table>
+  </body>
+</html>
