@@ -19,33 +19,39 @@ h2{
 span{
     text-decoration: underline;
 }
-    </style> -->
+    </style> --> 
   </head>
-  <body>
+  <body onload="showDate();">
     <h2>Hello From SkillSoft</h2>
     <p>Tell us about <span>your</span> course</p>
+    <div id="courseIntro">
+      <div>Here are our courses:</div>
+    </div>
+    <div id="dateToday">Today:</div>
+    <p>A few mathematical functions</p>
+    <br>
 <div>
   <script>
     for(x=0; x<coursesArray.length; x++){
       document.write(coursesArray[x] + ', ');
     }
-    document.write("<p></p>");
+    document.write("<div></div>");
 
     //  store the data in console 
 
-    document.getElementById("sendData").addEventListener('click', function(){
-       var data = console.log('Data is Saved');
-       localStorage.setItem('savedData', data);
-    });
+    // document.getElementById("sendData").addEventListener('click', function(){
+    //    var data = console.log('Data is Saved');
+    //    localStorage.setItem('savedData', data);
+    // });
   </script>
 </div>
     <div>
-      <form>
+      <form name="feedback">
         <div>
           <label>Choose a Course:</label>
         </div>
         <div>
-          <select id="courses" multiple size="3">
+          <select id="courses" size="3" onchange="choiceMade(this.value);">
             <!-- ( multiple size="5" ) these are above in the select tag -->
             <option value="" selected>--Choose--</option>
             <option value="angular">Angular</option>
@@ -55,15 +61,18 @@ span{
             <option value="python">Python</option>
           </select>
         </div>
-
+        <div>
+          <div id="courseInfo"></div>
+        </div>
         <div id="favourites">
+          
           <div>
             <label class="standoutLabel">Favourite Instructor:</label>
-            <input type="text" id="instructorName" />
+            <input type="text" id="instructorName" required minlength="4"/>
           </div>
           <div>
             <label class="standoutLabel">Favourite Course:</label>
-            <input type="text" id="courseName" />
+            <input type="text" id="courseName" required maxlength="10" pattern="[A-Za-z]{1,}[+]{0,2}"/>
           </div>
           <div>
             <label>Did you like the course</label>
@@ -72,9 +81,13 @@ span{
             <input type="radio" name="like" />Yes
             <input type="radio" name="like" />No
           </div>
+          <div>
+            <div>A few math functions like pow(), min() & abs()</div>
+            <div id="result"></div>
+          </div>
         </div>
         <div>
-          <button class="green-btn" id="sendData">Send</button>
+          <button class="green-btn" id="sendData" onclick="validate(); calculateThis();" >Send</button>
         </div>
       </form>
     </div>
