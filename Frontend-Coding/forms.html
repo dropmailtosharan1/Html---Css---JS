@@ -1,0 +1,241 @@
+<a href="index.html">Back to Home</a><br />
+<br />
+<script src="script.js"></script>
+<div>
+  <!-- <form action="process-form.php" method="post">
+        <fieldset>
+            <label for="first">First</label>
+            <input type="text" name="first" id="first"> <br>
+            <label for="Last">Last</label>
+            <input type="text" name="Last" id="Last"><br>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </fieldset>
+        <input type="submit" value="Send Info"> 
+    </form> -->
+  <form id="myForm" onsubmit="submitForm(event)" autocomplete="on">
+    <table border="0" width="410" height="94">
+      <tr>
+        <td height="40" width="108">Name:</td>
+        <td width="292">
+          <input
+            type="text"
+            size="50"
+            maxlength="50"
+            placeholder="Enter Your Name"
+            name="name"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td height="40">Email Adress:</td>
+        <td>
+          <input
+            type="email"
+            size="50"
+            placeholder="Enter Your Email"
+            name="email"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td height="40">Password:</td>
+        <td>
+          <input
+            type="password"
+            size="20"
+            placeholder="Enter Your Password"
+            name="password"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td height="180" style="vertical-align: text-top">Comments:</td>
+        <td>
+          <textarea
+            name="comments"
+            id="comments"
+            cols="60"
+            rows="10"
+            placeholder="Enter your comments"
+          ></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td height="40">I'm interested in:</td>
+        <td>
+          <p>
+            <label>
+              <input type="checkbox" name="interests" id="interests_1" />TV
+              Shows
+            </label>
+            <label>
+              <input type="checkbox" name="interests" id="interests_2" />News
+            </label>
+            <label>
+              <input type="checkbox" name="interests" id="interests-3" />Sports
+            </label>
+            <label>
+              <input type="checkbox" name="interests" id="interests-4" />Movies
+            </label>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td height="40">Subscribe to Newsletter?</td>
+        <td>
+          <p>
+            <label> <input type="radio" name="subscribe" id="Yes" />Yes </label>
+            <label> <input type="radio" name="subscribe" id="No" />No </label>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td height="40" style="vertical-align: text-top">
+          Best Time to contact me::
+        </td>
+        <td>
+          <select name="time" id="time">
+            <option value="">Choose the time</option>
+            <option value="morning" id="morning">Morning</option>
+            <option value="afternoon" id="afternoon">Afternoon</option>
+            <option value="evening" id="evening">Evening</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td height="40">
+          <input type="submit" name="submit" value="Submit to this window" />
+          <br />
+          <br />
+          <input
+            type="submit"
+            name="submit"
+            formtarget="_blank"
+            value="Submit to a new tab"
+          />
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    <hr />
+    <table width="584" height="218" border="0">
+      <tr>
+        <td height="40"><h1>Choices:</h1></td>
+      </tr>
+      <tr>
+        <td>Please choose a value from the Range:</td>
+        <td><input type="range" name="rangeValue" /></td>
+      </tr>
+      <tr>
+        <td>Please choose a Range Slider:</td>
+        <td><input type="range" id="slider" min="0" max="100" /></td>
+        <td><output id="sliderOut"></output></td>
+      </tr>
+      <tr>
+        <td>Please choose a Rate your Range Slider with Javascript Skills (0-100):</td>
+        <td><input type="range" id="rating" min="0" max="100" onchange="rateSlider()"/></td>
+        <td><output id="rateSliderOut"></output></td>
+      </tr>
+      <tr>
+        <td>Please choose the Date:</td>
+        <td><input type="date" name="date" min="2000-01-01" max="2023-12-01"/></td>
+      </tr>
+      <tr>
+        <td>Please choose the Date & Time:</td>
+        <td><input type="datetime-local" id="myDate" name="datetime" /></td>
+        <td><button id="getDate" onclick="getDate()">Get Date & Time</button></td>
+      </tr>
+      <tr>
+        <td>Please choose a number:</td>
+        <td><input type="number" name="number" min="5" max="10" /></td>
+      </tr>
+      <tr>
+        <td height="28">Please choose a color:</td>
+        <td><input type="color" name="color" /></td>
+      </tr>
+      <tr>
+        <td><input type="submit" name="submit" value="Submit" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+<hr />
+<div>
+  <!-- <form action="#" method="post"> -->
+    <table>
+      <tr>
+        <td>Age:</td>
+        <td><input type="number" id="myNumber" min="0" max="100" /></td>
+        <td><button id="age" onclick="getAge()">Get Age</button></td>
+      </tr>
+    </table>
+    <h4>Identify a color code</h4>
+    <label for="color">Pick a color:</label>
+    <input type="color" id="userColor" onchange="getColor()" />
+    <h4>Color Picker Code in Borwser</h4>
+    <label for="color">Color:</label>
+    <input type="color" id="colorPicker" />
+    <output id="colorOut"></output>
+  <!-- </form> -->
+</div>
+<script>
+  // getAge()
+  function getAge() {
+    // alert(document.getElementById('myNumber').value);
+    var age = document.getElementById("myNumber").value;
+    alert("Age is: " + age);
+  }
+  // getColor
+  function getColor() {
+    // alert(document.getElementById('userColor').value)
+    var color = document.getElementById("userColor").value;
+    alert("Picked color code is: " + color);
+  }
+  // colorPicker
+  window.onload = function () {
+    document
+      .getElementById("colorPicker")
+      .addEventListener("change", displayColor, false);
+  };
+  // continue above function
+  function displayColor() {
+    document.getElementById("colorOut").innerHTML =
+      document.getElementById("colorPicker").value;
+  }
+  // Range Slider
+  window.onload = function () {
+    document.getElementById("slider").addEventListener(
+      "change",
+      function () {
+        document.getElementById("sliderOut").innerHTML =
+          document.getElementById("slider").value;
+      },
+      false
+    );
+  };
+  // Rating slider with Range
+  function rateSlider(){
+    var sliderValue = document.getElementById('rating').value;
+    document.getElementById('rateSliderOut').value=sliderValue;
+  }
+  // // Date & Time
+  // function getDate(){
+  //   alert(document.getElementById('myDate').value);
+  // }
+   // Get references to the input field and the button
+   var dateInput = document.getElementById("myDate");
+    var button = document.getElementById("getDate");
+    // Attach an event listener to the input field
+    dateInput.addEventListener("input", function() {
+      button.disabled = false; // Enable the button when the input field changes
+    });
+    // Define the function to get the selected date and time
+    function getDate() {
+      var selectedDate = dateInput.value;
+      alert("Selected date and time: " + selectedDate);
+      button.disabled = true; // Disable the button after displaying the alert
+    }
+    // Attach an event listener to the button
+    button.addEventListener("click", getDate);
+</script>
