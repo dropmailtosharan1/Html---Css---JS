@@ -17,4 +17,28 @@ function submitForm(event) {
     // Set the content of the new tab
     newTab.document.write(content);
   }
+
+  // Get GeoLocation
+  function showPosition(position) {
+    var output = "";
+    output += "Latitude: " + position.coords.latitude + "<br/>";
+    output += "Longitude: " + position.coords.longitude + "<br/>";
+    document.getElementById("resultLocation").innerHTML = output;
+  }
+
+  function getGeolocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      document.getElementById("resultLocation").innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  // Select a Car
+  function showSelectedCar() {
+    var carList = document.getElementById("carList");
+    var selectedCar = carList.options[carList.selectedIndex].text;
+    document.getElementById("result").textContent =
+      "You selected a car is : " + selectedCar;
+  }
   

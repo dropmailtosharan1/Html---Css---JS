@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My First Page</title>
     <style>
-      #courses{
+      #courses {
         margin-top: 10px;
         margin-bottom: 10px;
       }
-      .standoutLabel{
+      .standoutLabel {
         background-color: beige;
         display: inline-block;
       }
-      input[type=text]{
+      input[type="text"] {
         margin-top: 10px;
         text-transform: uppercase;
       }
@@ -24,17 +24,17 @@
     <nav>
       <ul>
         <li style="display: inline-block">
-          <a href="home.html">Home</a>
+          <a href="#">Home</a>
         </li>
         <li style="display: inline-block">
-          <a href="services.html">Services</a>
+          <a href="#">Services</a>
         </li>
         <li style="display: inline-block">
-          <a href="contactus.html">Contact Us</a>
+          <a href="#">Contact Us</a>
         </li>
       </ul>
     </nav>
-
+    <hr />
     <h3>Hello from SkillSoft</h3>
     <p>I hope you people are learning well</p>
     <h4>Tell us about your course</h4>
@@ -67,6 +67,7 @@
       </div>
       <button>Send</button>
     </form>
+    <hr />
     <h3>Table format in HTML</h3>
     <table style="border: 1px solid red; border-radius: 10px">
       <tr style="border: 1px solid red; border-radius: 10px">
@@ -164,3 +165,27 @@
     </table>
   </body>
 </html>
+<hr />
+<style>
+  .text{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: blueviolet;
+ }
+</style>
+<script>
+ function doIt() {
+    var result = document.querySelector('.text');    
+    // Change the text content
+    document.getElementById('output').innerHTML = result.innerHTML;
+    var output = document.getElementById('output');
+    // Change the color to green
+    output.style.color = 'green';
+  }
+</script>
+<div>
+  <span class="text">This is some text</span> <br>
+  <span class="text">This is some more text</span> <br>
+  <br>
+  <span class="text" id="output">This is even more text</span> <br> 
+  <button id="doit" onclick="doIt()">Do It</button>
+</div>

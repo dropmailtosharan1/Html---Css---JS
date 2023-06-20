@@ -2,18 +2,7 @@
 <br />
 <script src="script.js"></script>
 <div>
-  <!-- <form action="process-form.php" method="post">
-        <fieldset>
-            <label for="first">First</label>
-            <input type="text" name="first" id="first"> <br>
-            <label for="Last">Last</label>
-            <input type="text" name="Last" id="Last"><br>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
-        </fieldset>
-        <input type="submit" value="Send Info"> 
-    </form> -->
-  <form id="myForm" onsubmit="submitForm(event)" autocomplete="on">
+  <form id="myForm" onsubmit="submitForm(event)" autocomplete="on" autofocus>
     <table border="0" width="410" height="94">
       <tr>
         <td height="40" width="108">Name:</td>
@@ -121,6 +110,27 @@
     <hr />
     <table width="584" height="218" border="0">
       <tr>
+        <td height="40"><h1>Site Visit</h1></td>
+      </tr>
+      <tr>
+        <td height="30">Birthday (must be 21 or older):</td>
+        <td><input type="date" name="birthday" max="1995-02-06" /></td>
+      </tr>
+      <tr>
+        <td height="30">Would you like to visit?</td>
+        <td><input type="date" name="visitdate" min="2014-02-07" /></td>
+      </tr>
+      <tr>
+        <td height="30">Number of Visitors (Min 2, Max 8):</td>
+        <td><input type="number" name="visitors" min="2" max="8" /></td>
+      </tr>
+      <tr>
+        <td>
+          <input type="submit" name="submit" value="Request a Site Visit" />
+        </td>
+      </tr>
+      <hr />
+      <tr>
         <td height="40"><h1>Choices:</h1></td>
       </tr>
       <tr>
@@ -133,18 +143,32 @@
         <td><output id="sliderOut"></output></td>
       </tr>
       <tr>
-        <td>Please choose a Rate your Range Slider with Javascript Skills (0-100):</td>
-        <td><input type="range" id="rating" min="0" max="100" onchange="rateSlider()"/></td>
+        <td>
+          Please choose a Rate your Range Slider with Javascript Skills (0-100):
+        </td>
+        <td>
+          <input
+            type="range"
+            id="rating"
+            min="0"
+            max="100"
+            onchange="rateSlider()"
+          />
+        </td>
         <td><output id="rateSliderOut"></output></td>
       </tr>
       <tr>
         <td>Please choose the Date:</td>
-        <td><input type="date" name="date" min="2000-01-01" max="2023-12-01"/></td>
+        <td>
+          <input type="date" name="date" min="2000-01-01" max="2023-12-01" />
+        </td>
       </tr>
       <tr>
         <td>Please choose the Date & Time:</td>
         <td><input type="datetime-local" id="myDate" name="datetime" /></td>
-        <td><button id="getDate" onclick="getDate()">Get Date & Time</button></td>
+        <td>
+          <button id="getDate" onclick="getDate()">Get Date & Time</button>
+        </td>
       </tr>
       <tr>
         <td>Please choose a number:</td>
@@ -162,21 +186,40 @@
 </div>
 <hr />
 <div>
+  <h3>Geolocation Example</h3>
+  <p id="resultLocation"></p>
+  <button onclick="getGeolocation()">Get Location</button>
+</div>
+<hr />
+<h3>Select a Car</h3>
+<select id="carList">
+  <option value="BMW">BMW</option>
+  <option value="Hyundai">Hyundai</option>
+  <option value="Kia">Kia</option>
+  <option value="Mahindra">Mahindra</option>
+  <option value="Tata">Tata</option>
+  <!-- Add more options if needed -->
+</select>
+<br /><br />
+<button onclick="showSelectedCar()">Submit</button>
+<div id="result"></div>
+<hr />
+<div>
   <!-- <form action="#" method="post"> -->
-    <table>
-      <tr>
-        <td>Age:</td>
-        <td><input type="number" id="myNumber" min="0" max="100" /></td>
-        <td><button id="age" onclick="getAge()">Get Age</button></td>
-      </tr>
-    </table>
-    <h4>Identify a color code</h4>
-    <label for="color">Pick a color:</label>
-    <input type="color" id="userColor" onchange="getColor()" />
-    <h4>Color Picker Code in Borwser</h4>
-    <label for="color">Color:</label>
-    <input type="color" id="colorPicker" />
-    <output id="colorOut"></output>
+  <table>
+    <tr>
+      <td>Age:</td>
+      <td><input type="number" id="myNumber" min="0" max="100" /></td>
+      <td><button id="age" onclick="getAge()">Get Age</button></td>
+    </tr>
+  </table>
+  <h4>Identify a color code</h4>
+  <label for="color">Pick a color:</label>
+  <input type="color" id="userColor" onchange="getColor()" />
+  <h4>Color Picker Code in Borwser</h4>
+  <label for="color">Color:</label>
+  <input type="color" id="colorPicker" />
+  <output id="colorOut"></output>
   <!-- </form> -->
 </div>
 <script>
@@ -215,27 +258,27 @@
     );
   };
   // Rating slider with Range
-  function rateSlider(){
-    var sliderValue = document.getElementById('rating').value;
-    document.getElementById('rateSliderOut').value=sliderValue;
+  function rateSlider() {
+    var sliderValue = document.getElementById("rating").value;
+    document.getElementById("rateSliderOut").value = sliderValue;
   }
   // // Date & Time
   // function getDate(){
   //   alert(document.getElementById('myDate').value);
   // }
-   // Get references to the input field and the button
-   var dateInput = document.getElementById("myDate");
-    var button = document.getElementById("getDate");
-    // Attach an event listener to the input field
-    dateInput.addEventListener("input", function() {
-      button.disabled = false; // Enable the button when the input field changes
-    });
-    // Define the function to get the selected date and time
-    function getDate() {
-      var selectedDate = dateInput.value;
-      alert("Selected date and time: " + selectedDate);
-      button.disabled = true; // Disable the button after displaying the alert
-    }
-    // Attach an event listener to the button
-    button.addEventListener("click", getDate);
+  // Get references to the input field and the button
+  var dateInput = document.getElementById("myDate");
+  var button = document.getElementById("getDate");
+  // Attach an event listener to the input field
+  dateInput.addEventListener("input", function () {
+    button.disabled = false; // Enable the button when the input field changes
+  });
+  // Define the function to get the selected date and time
+  function getDate() {
+    var selectedDate = dateInput.value;
+    alert("Selected date and time: " + selectedDate);
+    button.disabled = true; // Disable the button after displaying the alert
+  }
+  // Attach an event listener to the button
+  button.addEventListener("click", getDate);
 </script>
