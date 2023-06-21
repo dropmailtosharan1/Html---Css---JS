@@ -167,25 +167,47 @@
 </html>
 <hr />
 <style>
-  .text{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  .text {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     color: blueviolet;
- }
+  }
 </style>
 <script>
- function doIt() {
-    var result = document.querySelector('.text');    
+  function doIt() {
+    var result = document.querySelector(".text");
     // Change the text content
-    document.getElementById('output').innerHTML = result.innerHTML;
-    var output = document.getElementById('output');
+    document.getElementById("output").innerHTML = result.innerHTML;
+    var output = document.getElementById("output");
     // Change the color to green
-    output.style.color = 'green';
+    output.style.color = "green";
   }
 </script>
 <div>
-  <span class="text">This is some text</span> <br>
-  <span class="text">This is some more text</span> <br>
-  <br>
-  <span class="text" id="output">This is even more text</span> <br> 
+  <span class="text">This is some text</span> <br />
+  <span class="text">This is some more text</span> <br />
+  <br />
+  <span class="text" id="output">This is even more text</span> <br />
   <button id="doit" onclick="doIt()">Do It</button>
 </div>
+<hr />
+<script>
+  function displayIt() {
+    var displayResult = document.querySelectorAll("a[href]");
+    var outputElement = document.getElementById("outData");
+    // Clear the previous output
+    outputElement.innerHTML = "";
+    for (var i = 0; i < displayResult.length; i++) {
+      outputElement.innerHTML += displayResult[i].href + "<br>";
+    }
+  }
+</script>
+<div>
+  <a href="https://www.google.com" target="_blank">Search Google</a> <br />
+  <a href="https://www.Yahoo.com" target="_blank">Search Yahoo</a> <br />
+  <a href="https://www.bing.com" target="_blank">Search Bing</a> <br />
+  <br />
+  <button id="displayIt" onclick="displayIt()">Display Links</button> <br />
+  <div id="outData"></div>
+</div>
+<hr>

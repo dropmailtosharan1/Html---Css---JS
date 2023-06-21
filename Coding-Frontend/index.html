@@ -1,0 +1,105 @@
+<title>Coding...!</title>
+<h3 style="text-align: center">Coding......!</h3>
+<hr style="border: 10px solid red; width: 50%" />
+<br />
+<style>
+  #output {
+    border: 1px solid blueviolet;
+  }
+</style>
+<script>
+  var first, last, ofirst, olast;
+  window.onload = function () {
+    first = document.getElementById("first");
+    last = document.getElementById("last");
+    ofirst = document.getElementById("fnameOutput");
+    olast = document.getElementById("lnameOutput");
+    document
+      .getElementById("storeData")
+      .addEventListener("click", storeData, false);
+    document
+      .getElementById("retriveData")
+      .addEventListener("click", retriveData, false);
+  };
+  function storeData() {
+    sessionStorage.firstName = first.value;
+    sessionStorage.lastName = last.value;
+  }
+  function retriveData() {
+    ofirst.innerHTML = sessionStorage.firstName;
+    olast.innerHTML = sessionStorage.lastName;
+  }
+</script>
+<div>
+  <label>First Name:</label> <input type="text" id="first" /> <br /><br />
+  <label>Last Name:</label> <input type="text" id="last" /> <br /><br />
+  <button id="storeData">Store Data</button> <br />
+  <br />
+  <div id="output">
+    First Name: <output id="fnameOutput"></output> <br />
+    <br />
+    Last Name: <output id="lnameOutput"></output> <br /><br />
+  </div>
+  <br />
+  <button id="retriveData">Retrive Data</button>
+</div>
+<hr />
+<style>
+  .note {
+    width: 150px;
+    height: 40px;
+    background-color: #ffd800;
+  }
+  .article {
+    width: 150px;
+    height: 40px;
+    background-color: #b6ff00;
+  }
+</style>
+<script>
+  function doIt() {
+    var result = document.querySelectorAll("div.note, div.article");
+    for (var i = 0; i < result.length; i++) {
+      document.getElementById("outData").innerHTML +=
+        result[i].innerHTML + "<br>";
+    }
+    alert(result.length);
+    // result[i].innerHTML = "Changed to article #3";
+  }
+</script>
+<div class="article">This is an Article #1</div>
+<br />
+<div class="note">This is a Note #1</div>
+<br />
+<br />
+<div class="article">This is an Article #2</div>
+<br />
+<div class="note">This is a Note #2</div>
+<br />
+<br />
+<button id="doit" onclick="doIt()">Do It</button> <br />
+<br />
+<span id="outData"></span>
+<hr />
+<script type="text/javascript">
+  function loadContent() {
+    var imghttp = new XMLHttpRequest();
+    imghttp.onreadystatechange = function () {
+      if (imghttp.readyState == 4 && imghttp.status == 200) {
+        document.getElementById("data").innerHTML = imghttp.responseText;
+      }
+    };
+    imghttp.open("GET", "index.html", true);
+    // In place of index.html change the any other html file then the output is correctly displayed
+    // & also place the below code in other html file with the img address
+    //   <div>
+    //   <img src="Image.jpg" alt="image">
+    // </div>
+    imghttp.send();
+  }
+</script>
+<h3>Load an Image</h3>
+<div id="data"></div>
+<button id="loadit" onclick="loadContent()">Load an Image</button>
+<span id="data"></span>
+<hr />
