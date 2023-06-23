@@ -1,6 +1,58 @@
-<h3>Play an Audio</h3>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio & Vedio Files</title>
+</head>
+<script>
+    var player, duration, myInterval , elapsed;
+    window.onload = function(){
+        document.getElementById('playButton').addEventListener('click',playMusic, false);
+        document.getElementById('stopButton').addEventListener('click',stopMusic, false);
+        play = document.getElementById('myAudio');
+        play.addEventListener('error', audioError, false);
+        play.addEventListener('ended', mediaEnded, false);
+        duration = document.getElementById('duration');
+        elapsed = document.getElementById('elapsed');
+    }
+    function playMusic(){
+        play.play();
+        duration.innerHTML = Math.round(play.duration);
+        myInterval = setInterval(update, 500);
+    }
+    function stopMusic(){
+        play.pause();
+    }
+    function update(){
+        elapsed.innerHTML = Math.round(play.currentTime);
+    }
+    function audioError(){
+        alert('The audio has errored...!');
+    }
+    function mediaEnded(){
+        duration.innerHTML='';
+        elapsed.innerHTML='';
+        alert('Media has completed playing...!')
+}
+</script>
+<body>
+    <h3>Play an Audio</h3>
 <div>
     <audio controls="controls">
         <source src="address.mp3" type="audio/mp3">
+        <!-- its become error in output because audio file is not stored in a file path -->
         </audio>
 </div>
+<hr>
+    <audio id="myAudio">
+        <source src="address.mp3" type="audio/mp3">
+    </audio>
+    <p>Duration: <output id="duration"></output></p>
+    <p>Time Elapsed: <output id="elapsed"></output></p>
+    <button id="playButton">Play</button>
+    <button id="stopButton">Stop</button>
+</body>
+</html>
