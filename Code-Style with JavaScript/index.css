@@ -1,0 +1,31 @@
+body {
+    font-family: Calibri;
+    background-color: #808080;
+    }
+    h1 {
+    font-family: Arial;
+    font-size: 50pt;
+    color: #f00;
+    }
+    .regPara {
+    font-style: normal;
+    }
+    .italPara {
+    font-style: italic;
+    }
+    .boldPara {
+    font-weight: bold;
+    }
+    #div1 {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    background-color: #ffd800;
+    position: relative;
+    float: left;
+    }
+    #output {
+    font-family: Consolas;
+    font-size: 20pt;
+    }
