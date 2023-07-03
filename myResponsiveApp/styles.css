@@ -1,0 +1,83 @@
+/* universal selector rule */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* base styles which apply to all layouts */
+.page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  background-color: darkslategray;
+  height: 50px;
+}
+
+.header {
+  background-color: lightskyblue;
+}
+
+.content {
+  background-color: beige;
+  height: 300px;
+}
+
+.action {
+  background-color: lightgreen;
+}
+
+.feature1 {
+  background-color: yellowgreen;
+}
+
+.feature2 {
+  background-color: pink;
+}
+
+.feature3 {
+  background-color: darksalmon;
+}
+
+/* tablet (pink) */
+@media only screen and (min-width: 361px) and (max-width: 800px) {
+  .action,
+  .feature1,
+  .feature2,
+  .feature3 {
+    width: 50%;
+  }
+}
+
+/* desktop (blue) */
+@media only screen and (min-width: 801px) {
+  .page {
+    width: 801px;
+    margin: 0 auto;
+  }
+  .action {
+    height: 300px;
+    order: 1;
+  }
+  .content {
+    order: 2;
+  }
+  .feature1,
+  .feature2,
+  .feature3 {
+    width: 33.3%;
+  }
+  .header {
+    height: 360px;
+  }
+}
